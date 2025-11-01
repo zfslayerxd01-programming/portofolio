@@ -1,0 +1,369 @@
+Ghafi:
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>about my self</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #0f1115;
+        --card: #121318;
+        --muted: #9aa0a6;
+        --accent: #4282c6;
+        --accent-2: #b08b6a;
+        --glass: rgba(255, 255, 255, 0.03);
+        --radius: 12px;
+        --maxw: 1100px;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0b0c0f 0%, #0f1115 100%);
+        color: #e9eef0;
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.5;
+      }
+      .container {
+        width: calc(100% - 40px);
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 10px 0;
+        backdrop-filter: blur(6px);
+        background: linear-gradient(
+          180deg,
+          rgba(16, 18, 20, 0.45),
+          rgba(16, 18, 20, 0.25)
+        );
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        font-weight: 700;
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 1rem;
+      }
+      nav {
+        display: flex;
+        gap: 18px;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: 0;
+        color: var(--muted);
+        font-size: 1.2rem;
+      }
+      .hero {
+        padding: 36px 0;
+      }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .profile {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 18px;
+        border: 3px solid rgba(255, 255, 255, 0.04);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+        margin: 0;
+        font-size: 2rem;
+      }
+      .accent {
+        color: var(--accent);
+      }
+      .subtitle {
+        color: var(--muted);
+        margin-top: 8px;
+        margin-bottom: 12px;
+      }
+      .lead {
+        max-width: 60ch;
+        color: #cbd6d9;
+        margin-bottom: 12px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .btn.primary {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #08110b;
+      }
+      .btn.ghost {
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        margin-left: 10px;
+      }
+      .section {
+        padding: 44px 0;
+      }
+      .section h2 {
+        font-size: 1.15rem;
+        margin: 0 0 12px 0;
+        color: #e6eef0;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(2, 6, 8, 0.6);
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+      }
+      .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+      }
+      .card-body {
+
+padding: 12px;
+      }
+      .card h3 {
+        margin: 0 0 6px 0;
+      }
+      .card p {
+        margin: 0 0 10px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .tags span {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 6px 8px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        margin-right: 8px;
+        color: var(--muted);
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(2, 6, 8, 0.7);
+      }
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .skills-list div {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 8px 12px;
+        border-radius: 10px;
+        color: var(--muted);
+      }
+      footer {
+        padding: 20px 0;
+        text-align: center;
+        color: var(--muted);
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      /* responsive */
+      @media (max-width: 900px) {
+        .hero-inner {
+          grid-template-columns: 150px 1fr;
+        }
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+        .nav-toggle {
+          display: block;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+        .profile {
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* small subtle divider */
+      .muted-line {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.02),
+          transparent
+        );
+        margin: 18px 0;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-inner">
+        <a class="brand" href="#">Abdurrahman Al Ghafiqi</a>
+        <nav id="nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#hobby">hobby</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button
+          id="navToggle"
+          class="nav-toggle"
+          aria-label="toggle menu"
+          onclick="(function(){const n=document.getElementById('nav'); if(!n) return; n.style.display = n.style.display === 'flex' ? 'none' : 'flex'; n.style.flexDirection='column'; n.style.gap='12px';})()"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <img
+              class="profile"
+              src="C:\Users\Asus\Videos\Captures\gapi.jpg"
+              alt="Foto profil"
+            />
+          </div>
+          <div>
+            <h1>Perkenalkan, aku <span class="accent">Ghafi</span></h1>
+            <p class="subtitle">
+              My school : SMP Al Azhar 37 Pekanbaru • Kelas 7C
+            </p>
+            <p class="lead">
+              aku ingin menjadi seorang yang sukses di masa depan
+            </p>
+          </div>
+        </div>
+      </section>
+
+<section id="about" class="section about">
+        <div class="container">
+          <h2>About me</h2>
+          <p>
+            Hi.... Namaku Abdurrahman Al Ghafiqi,biasa dipanggil Ghafi,gepeng
+            dan gapi. aku adalah seorang pelajar di SMP Al Azhar 37 Pekanbaru,
+            aku menduduki kelas 7C. aku memiliki sifat friendly dan mudah
+            bergaul dengan teman-teman. aku sangat menyukai pelajaran matematika
+            dan bahasa indonesia karena aku suka dengan tantangan.aku memiliki
+            guru favorit yaitu pak satrio maulana,karena pak io mengajar dengan
+            cara yang santai dan lucu dan juga pak io sangat baik dan ramah
+            kepada siswa-siswinya. aku juga memiliki teman terbaik namanya
+            almair,carel,hanif,otsman. aku memilki cita-cita ingin menjadi
+            seorang pengusaha karena aku ingin menjadi seorang yang sukses di
+            masa depan.
+          </p>
+          <div class="muted-line"></div>
+        </div>
+      </section>
+
+      <section id="hobby" class="section projects">
+        <div class="container">
+          <h2>hobby</h2>
+          <div class="grid">
+            <article class="card">
+              <img
+                src="C:\Users\Asus\Videos\Captures\gokgokgok.jpg"
+                alt="Project 1"
+              />
+              <div class="card-body">
+                <h3>basket</h3>
+                <p>
+                  Deskripsi singkat — aku menyukai basket sejak kelas 5,posisiku
+                  di basket sebagai PG atau Point Guard.Saya memiliki coach yang
+                  bernama ryan,Idolaku adalah Lamelo BALL
+                </p>
+                <div class="tags"><span>PG</span><span>5</span></div>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="C:\Users\Asus\Videos\Captures\photo_2025-11-01_19-36-36.jpg"
+                alt="Project 2"
+              />
+              <div class="card-body">
+                <h3>Dengerin Music</h3>
+                <p>nuansa music yangku suka adalah dj,chill,relax</p>
+                <div class="tags"><span>relax</span><span>chill</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="section contact">
+        <div class="container">
+          <h2>Kontak</h2>
+          <p>
+            Email:
+            <a href="mailto:ghazi19920@gmail.com<">ghazi19920@gmail.com</a> ·
+            Telegram : @gapi_aja_tuh
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2025 gavi · Myportofolio</div>
+    </footer>
+  </body>
+  </html>
